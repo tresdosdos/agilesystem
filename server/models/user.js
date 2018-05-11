@@ -1,0 +1,35 @@
+const mongoose = require('../db');
+const bcrypt = require('bcrypt');
+const SALT_WORK_FACTOR = 10;
+
+const schema = mongoose.Schema(
+    {
+        username:{
+            type: String,
+            unique: true,
+            required: true
+        },
+        hashedPassword:{
+            type: String,
+            required: true
+        }
+    }
+);
+
+schema.methods.encryptPassword = function (password) {
+    const salt = bcrypt.genSaltSync(SALT_WORK_FACTOR);
+    return bcrypt.hashSync(password, salt);
+};
+
+schema.virtual('password').set(function (password) {
+    this.hashedPassword = this.encryptPassword(password);
+});
+
+schema.methods.comparePassword = function (password, cb) {
+    bcrypt.compare(password, this.hashedPassword, function(err, isMatch) {
+        if (err) return cb(err);
+        cb(null, isMatch);
+    });
+};
+
+exports.User = mongoose.model('User', schema);

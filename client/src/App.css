@@ -1,0 +1,7 @@
+.credentials_match{
+    border: #0f0 2px solid;
+}
+
+.credentials_not_match{
+    border: #f00 2px solid;
+}
