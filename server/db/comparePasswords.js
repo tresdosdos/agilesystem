@@ -6,7 +6,7 @@ module.exports = function (userData, cb) {
             if (err) cb(err);
             cb(null, isMatch, user);
         })})
-        .catch(function () {
-            cb('No user');
+        .catch(function (err) {
+            cb(err);
         });
 };
