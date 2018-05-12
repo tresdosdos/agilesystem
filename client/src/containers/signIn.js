@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {getCredentials} from '../actions/credentials';
-import {logIn} from '../actions/login'
+import {logIn} from '../actions/signIn'
 import ValidInput from '../components/input';
 import '../App.css'
 
-class LoginInputs extends Component{
+class SignIn extends Component{
     constructor(props) {
         super(props);
         this.state={
@@ -39,14 +39,15 @@ class LoginInputs extends Component{
                 isPasswordValid: this.validation(e)
             });
         }
-        console.log(this.state);
+        this.props.getCredentials(e);
     }
     render(){
         return (
             <div>
-                <ValidInput type='text' onChange={this.inputValid} onKeyDown={this.props.getCredentials} isValid={this.state.isNameValid}/>
-                <ValidInput type='password' onChange={this.inputValid} onKeyDown={this.props.getCredentials} isValid={this.state.isPasswordValid}/>
+                <ValidInput type='text' onChange={this.inputValid} isValid={this.state.isNameValid}/>
+                <ValidInput type='password' onChange={this.inputValid} isValid={this.state.isPasswordValid}/>
                 <button onClick={this.props.logIn}>Log in</button>
+                {this.props.store.errors.signIn ? (<h2>{this.props.store.errors.signIn}</h2>) : null}
             </div>
         );
     }
@@ -58,4 +59,4 @@ export default connect(
         getCredentials: (e) => {dispatch(getCredentials(e))},
         logIn: () => {dispatch(logIn())}
     })
-)(LoginInputs);
+)(SignIn);

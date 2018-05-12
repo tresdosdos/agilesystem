@@ -6,7 +6,7 @@ import {createStore, applyMiddleware} from 'redux';
 import reducers from './reducers';
 import './App.css';
 
-import LoginInputs from './containers/loginInputs';
+import SignIn from './containers/signIn';
 
 export const store = createStore(reducers, applyMiddleware(thunk));
 store.subscribe(() => console.log(store.getState()));
@@ -14,7 +14,7 @@ store.subscribe(() => console.log(store.getState()));
 class App extends Component {
   render() {
     return (
-      <LoginInputs/>
+      <SignIn/>
     );
   }
 }
