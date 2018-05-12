@@ -7,7 +7,7 @@ import reducers from './reducers';
 import './App.css';
 
 import SignIn from './containers/signIn';
-import Header from './components/Header/Header'
+import Header from './components/header/index'
 
 export const store = createStore(reducers, applyMiddleware(thunk));
 store.subscribe(() => console.log(store.getState()));
@@ -16,13 +16,12 @@ class App extends Component {
   render() {
     return (
       <Fragment>
-        <Header/>
-        <main>
-          <Switch>
-            <Route exact path='/'/>
-            <Route path='/login' component={SignIn}/>
-          </Switch>
-        </main>
+          <Header>
+              <Switch>
+                  <Route exact path='/' component={SignIn}/>
+                  <Route path='/signUp' /*component={SignUp}*//>
+              </Switch>
+          </Header>
       </Fragment>
     );
   }
