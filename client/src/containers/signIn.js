@@ -5,6 +5,8 @@ import {signIn} from '../actions/signIn'
 import ValidInput from '../components/validInput';
 import AuthorizationForm from '../components/authorizationForm'
 import ErrorListener from '../components/errorListener';
+import {logIn} from '../actions/signIn'
+import ValidInput from '../components/input';
 import '../App.css'
 
 class SignIn extends Component {

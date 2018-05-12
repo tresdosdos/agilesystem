@@ -7,7 +7,7 @@ import reducers from './reducers';
 import './App.css';
 
 import SignIn from './containers/signIn';
-import Header from './components/header/index'
+import Header from './components/header'
 
 export const store = createStore(reducers, applyMiddleware(thunk));
 store.subscribe(() => console.log(store.getState()));
