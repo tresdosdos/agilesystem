@@ -7,11 +7,7 @@ h5{
     align-items: center;
     display: flex;
     flex-direction: column;
-    position: absolute;
-    width: fit-content;
-    background-color: #00a6fd;
-    padding: 20px;
-    top:100%;
+    width: 100%;
 }
 
 .authorization__form__submit__active {
@@ -43,34 +39,4 @@ h5{
     padding: 5px;
     text-transform: uppercase;
     width: fit-content;
-}
-
-.authorization__form__close{
-    position: relative;
-    align-self: flex-end;
-    width: 1em;
-    height: 1em;
-    opacity: 0.3;
-}
-
-.authorization__form__close:hover{
-    opacity: 1;
-}
-
-.authorization__form__close:before, .authorization__form__close:after {
-    position: absolute;
-    content: '';
-    left:1.5em;
-    top: -1em;
-    height: 1em;
-    width: 2px;
-    background-color: #333;
-}
-
-.authorization__form__close:before {
-    transform: rotate(45deg);
-}
-
-.authorization__form__close:after {
-    transform: rotate(-45deg);
 }
