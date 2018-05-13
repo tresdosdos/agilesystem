@@ -46,3 +46,8 @@ table {
 body{
     font-family: "Rockwell Extra Bold", Arial, sans-serif;
 }
+
+.app__main{
+    position: relative;
+    top:100%;
+}
