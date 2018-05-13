@@ -7,7 +7,7 @@ import {connect} from 'react-redux';
 import {signUp} from "../../actions/signUp";
 import {getRegistration} from "../../actions/registation";
 
-import UserProfile from '../userProfile';
+import UserProfile from '../../components/userProfile';
 
 class Header extends Component{
   render(){
