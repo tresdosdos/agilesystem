@@ -1,7 +1,7 @@
 import {store} from '../App';
 import requestAPI from '../services/requestAPI';
 
-export const logIn = () => (dispatch) => {
+export const signIn = () => (dispatch) => {
   const name = store.getState().credentials.name;
   const pass = store.getState().credentials.pass;
   requestAPI.post('/login', {

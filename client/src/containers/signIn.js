@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {getCredentials} from '../actions/credentials';
+import {signIn} from '../actions/signIn'
+import ValidInput from '../components/validInput';
+import AuthorizationForm from '../components/authorizationForm'
+import ErrorListener from '../components/errorListener';
 import {logIn} from '../actions/signIn'
 import ValidInput from '../components/input';
-
 import '../App.css'
-import AuthorizationForm from '../components/AuthorizationForm/AuthorizationForm'
 
 class SignIn extends Component {
   constructor (props) {
@@ -20,12 +22,12 @@ class SignIn extends Component {
   passwordValidation = (e) => {
     const {value} = e.target;
     return /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]{8,}$/.test(value);
-  }
+  };
 
   userNameValidation = (e) => {
     const {value} = e.target;
-    return /^[A-Za-z]{4,}$/.test(value);
-  }
+    return /^[A-Za-z0-9]{3,}$/.test(value);
+  };
 
   inputValid (e) {
     const {type} = e.target;
@@ -44,10 +46,10 @@ class SignIn extends Component {
 
   render () {
     return (
-      <AuthorizationForm submit={this.props.logIn}>
+      <AuthorizationForm submit={this.props.signIn} isNameValid={this.state.isNameValid} isPasswordValid={this.state.isPasswordValid}>
         <ValidInput type='text' onChange={this.inputValid} isValid={this.state.isNameValid}/>
         <ValidInput type='password' onChange={this.inputValid} isValid={this.state.isPasswordValid}/>
-        {/*this.props.store.errors.signIn ? (<h2>{this.props.store.errors.signIn}</h2>) : null*/}
+        {this.props.store.errors.signIn ? (<ErrorListener error={this.props.store.errors.signIn}/>) : null}
       </AuthorizationForm>
     );
   }
@@ -57,6 +59,6 @@ export default connect(
     state => ({store: state}),
     dispatch => ({
         getCredentials: (e) => {dispatch(getCredentials(e))},
-        logIn: () => {dispatch(logIn())}
+        signIn: () => {dispatch(signIn())}
     })
 )(SignIn);

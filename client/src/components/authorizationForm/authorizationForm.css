@@ -1,0 +1,37 @@
+.authorization__form{
+    display: flex;
+    background-color: #f5f5f5;
+    padding: 20px;
+    flex-direction: column;
+    width: fit-content;
+}
+
+.authorization__form__submit__active{
+    padding: 5px;
+    color: #fff;
+    width: fit-content;
+    background-color: #00a6fd;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+}
+
+.authorization__form__submit__active:hover{
+    background-color: #0070ba;
+}
+
+.authorization__form__submit__disable{
+    padding: 5px;
+    color: #fff;
+    width: fit-content;
+    background-color: #00a6fd;
+    outline: none;
+    opacity: 0.3;
+    border: none;
+    border-radius: 10px;
+}
+
+.authorization__form__submit__disable:hover{
+    background-color: #0070ba;
+    opacity: 0.7;
+}
