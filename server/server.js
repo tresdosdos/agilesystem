@@ -9,6 +9,7 @@ app.use(bodyParser.urlencoded({ extended: true })); ///нужное
 app.use(bodyParser.json());
 
 require('./middleware/login')(app);
+require('./middleware/register')(app);
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");

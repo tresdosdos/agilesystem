@@ -1,8 +1,11 @@
 .header{
-    background-color: lime;
+    align-items: flex-end;
+    background-color: #0079bf;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    justify-content: center;
+    height: 180px;
+    position: fixed;
     width: 100%;
 }
 
@@ -11,6 +14,9 @@
 }
 
 .header__auth{
+    align-items: flex-end;
+    display: flex;
+    flex-direction: column;
     width: 20%;
 }
 
@@ -26,4 +32,12 @@
     flex-direction: row;
     justify-content: space-around;
     width: 100%;
+}
+
+.header__links a{
+    color: #fff;
+}
+
+.header__links svg{
+    margin-right: 5px;
 }

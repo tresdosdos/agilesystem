@@ -7,15 +7,18 @@ export const getCredentials = (e) => (dispatch) => {
         dispatch({
             type: 'GET_CREDENTIALS_SUCCESS',
             name: e.target.value,
-            pass: store.getState().credentials.pass,
+            pass: store.getState().signIn.pass,
         });
     }
     else if (type === 'password'){
         dispatch({
             type: 'GET_CREDENTIALS_SUCCESS',
-            name: store.getState().credentials.name,
+            name: store.getState().signIn.name,
             pass: e.target.value
         });
     }
+    dispatch({
+       type: 'Clear Error'
+    });
     return;
 };

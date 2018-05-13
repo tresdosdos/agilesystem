@@ -1,14 +1,25 @@
 const initialState = {
-  signIn: ''
+    name: '',
+    pass: '',
+    error: ''
 };
 
 export default function getSignIn(state = initialState, action){
     switch(action.type){
+        case 'GET_CREDENTIALS_SUCCESS':{
+            return Object.assign({}, state, {
+                name: action.name,
+                pass: action.pass
+            })
+        }
         case 'Not Found':{
-            return Object.assign({}, state, {signIn: 'This login was not found'})
+            return Object.assign({}, state, {error: 'This login was not found'})
         }
         case 'Forbidden':{
-            return Object.assign({}, state, {signIn: 'Incorrect password'})
+            return Object.assign({}, state, {error: 'Incorrect password'})
+        }
+        case 'Clear Error':{
+            return Object.assign({}, state, {error: ''})
         }
         default:{
             return state;

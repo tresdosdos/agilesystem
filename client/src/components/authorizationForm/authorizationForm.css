@@ -1,19 +1,26 @@
-.authorization__form{
-    display: flex;
-    background-color: #f5f5f5;
-    padding: 20px;
-    flex-direction: column;
-    width: fit-content;
+h5{
+    color: #fff;
+    text-align: center;
 }
 
-.authorization__form__submit__active{
-    padding: 5px;
-    color: #fff;
-    width: fit-content;
-    background-color: #00a6fd;
-    outline: none;
+.authorization__form{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.authorization__form__submit__active {
     border: none;
     border-radius: 10px;
+    color: #fff;
+    font-weight: bold;
+    margin: 5px 0;
+    padding: 5px;
+    outline: none;
+    text-transform: uppercase;
+    width: fit-content;
+    background-color: #58a8f2;
 }
 
 .authorization__form__submit__active:hover{
@@ -21,17 +28,15 @@
 }
 
 .authorization__form__submit__disable{
-    padding: 5px;
-    color: #fff;
-    width: fit-content;
     background-color: #00a6fd;
-    outline: none;
-    opacity: 0.3;
     border: none;
     border-radius: 10px;
-}
-
-.authorization__form__submit__disable:hover{
-    background-color: #0070ba;
-    opacity: 0.7;
+    color: #fff;
+    font-weight: bold;
+    margin: 5px 0;
+    outline: none;
+    opacity: 0.3;
+    padding: 5px;
+    text-transform: uppercase;
+    width: fit-content;
 }

@@ -12,6 +12,10 @@ const schema = mongoose.Schema(
         hashedPassword:{
             type: String,
             required: true
+        },
+        rights:{
+            type: String,
+            required: true
         }
     }
 );
