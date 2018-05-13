@@ -1,10 +1,16 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {getCredentials} from '../actions/credentials';
+
+import {getCredentials} from '../actions/login';
 import {signIn} from '../actions/signIn'
+
+
 import ValidInput from '../components/validInput';
 import AuthorizationForm from '../components/authorizationForm'
 import ErrorListener from '../components/errorListener';
+
+import {userNameValidation, passwordValidation} from "../services/validationAPI";
+
 import '../App.css'
 
 class SignIn extends Component {
@@ -14,20 +20,13 @@ class SignIn extends Component {
       isNameValid: '',
       isPasswordValid: ''
     };
-    this.inputValid = this.inputValid.bind(this);
   }
 
-  passwordValidation = (e) => {
-    const {value} = e.target;
-    return /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]{8,}$/.test(value);
-  };
+  passwordValidation = passwordValidation;
 
-  userNameValidation = (e) => {
-    const {value} = e.target;
-    return /^[A-Za-z0-9]{3,}$/.test(value);
-  };
+  userNameValidation = userNameValidation;
 
-  inputValid (e) {
+  inputValid = (e) => {
     const {type} = e.target;
     if (type === 'text') {
       this.setState({
@@ -40,14 +39,15 @@ class SignIn extends Component {
       });
     }
     this.props.getCredentials(e);
-  }
+  };
 
   render () {
+    const text = 'Sign in with existing account';
     return (
-      <AuthorizationForm submit={this.props.signIn} isNameValid={this.state.isNameValid} isPasswordValid={this.state.isPasswordValid}>
-        <ValidInput type='text' onChange={this.inputValid} isValid={this.state.isNameValid}/>
-        <ValidInput type='password' onChange={this.inputValid} isValid={this.state.isPasswordValid}/>
-        {this.props.store.errors.signIn ? (<ErrorListener error={this.props.store.errors.signIn}/>) : null}
+      <AuthorizationForm submit={this.props.signIn} isNameValid={this.state.isNameValid} isPasswordValid={this.state.isPasswordValid} text={text} button='Sign in'>
+        <ValidInput type='text' onChange={this.inputValid} isValid={this.state.isNameValid} placeholder='username'/>
+        <ValidInput type='password' onChange={this.inputValid} isValid={this.state.isPasswordValid} placeholder='password'/>
+        {this.props.store.signIn.error ? (<ErrorListener error={this.props.store.signIn.error}/>) : null}
       </AuthorizationForm>
     );
   }

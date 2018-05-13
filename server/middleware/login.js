@@ -1,7 +1,5 @@
 const bodyParser = require('body-parser');
-const createUser = require('../db/createUser');
 const comparePasswords = require('../db/comparePasswords');
-const mongoose = require('../db');
 
 module.exports = function (app) {
     app.use(bodyParser.urlencoded({ extended: true })); ///нужное
@@ -16,7 +14,7 @@ module.exports = function (app) {
             if (err) res.status(404).send();
             else{
                 if (isMatch){
-                    res.send({userName: user.userName});
+                    res.send({userName: user.userName, rights: user.rights});
                 }
                 else{
                     res.status(403).send();

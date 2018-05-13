@@ -1,14 +1,14 @@
 const initialState = {
     name: '',
-    pass: ''
+    rights: 'Developer'
 };
 
-export default function getCredentials(state = initialState, action) {
+export default function getAuth(state = initialState, action) {
     switch (action.type){
-        case 'GET_CREDENTIALS_SUCCESS':{
+        case 'GET_AUTH_SUCCESS':{
             return Object.assign({}, state, {
                 name: action.name,
-                pass: action.pass
+                rights: action.rights
             })
         }
         default:{

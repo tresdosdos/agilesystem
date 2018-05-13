@@ -40,3 +40,9 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
 }
+
+/*main code*/
+
+body{
+    font-family: "Rockwell Extra Bold", Arial, sans-serif;
+}

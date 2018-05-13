@@ -2,14 +2,20 @@ import {store} from '../App';
 import requestAPI from '../services/requestAPI';
 
 export const signIn = () => (dispatch) => {
-  const name = store.getState().credentials.name;
-  const pass = store.getState().credentials.pass;
+  const name = store.getState().signIn.name;
+  const pass = store.getState().signIn.pass;
   requestAPI.post('/login', {
       name: name,
       pass: pass
   }, {"Content-Type": "application/json"})
       .then((response) => response.json())
-      .then((res) => console.log(res))
+      .then((res) => {
+          dispatch({
+              type: 'GET_AUTH_SUCCESS',
+              name: res.userName,
+              rights: res.rights
+          })
+      })
       .catch((err) => {
           switch(err.message){
               case 'Not Found':{
