@@ -6,11 +6,11 @@ import {getRegistration} from "../../actions/registation";
 class UserProfile extends Component{
     render(){
         return (
-            <div>
+            <Fragment>
                 <h2>{this.props.store.auth.name}</h2>
                 <h3>{this.props.store.auth.rights}</h3>
                 <button>Log out</button>
-            </div>
+            </Fragment>
         );
     }
 }

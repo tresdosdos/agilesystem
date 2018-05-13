@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import './authorizationForm.css'
 
 export default class AuthorizationForm extends Component{
@@ -16,10 +15,9 @@ export default class AuthorizationForm extends Component{
     }
     return (
       <div className="authorization__form">
-        <Link className="authorization__form__close" to="/"/>
         <h5>{this.props.text}</h5>
         {this.props.children}
-        <Link to="/"><button className={className} onClick={this.props.submit} disabled={disabled}>{this.props.button}</button></Link>
+        <button className={className} onClick={this.props.submit} disabled={disabled}>{this.props.button}</button>
       </div>
     )
   }

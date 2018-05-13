@@ -2,7 +2,6 @@ import React, { Component, Fragment } from 'react'
 import thunk from 'redux-thunk';
 import { Route, Switch } from 'react-router-dom'
 import {createStore, applyMiddleware} from 'redux';
-import userProfile from './components/userProfile'
 import reducers from './reducers';
 import './App.css';
 
@@ -19,16 +18,10 @@ class App extends Component {
       <Fragment>
           <Header>
               <Switch>
-                <Route exact path='/'/>
-                <Route path='/signIn' component={SignIn}/>
-                <Route path='/signUp' component={SignUp}/>
+                  <Route exact path='/' component={SignIn}/>
+                  <Route path='/signUp' component={SignUp}/>
               </Switch>
           </Header>
-          <main className="app__main">
-            <Switch>
-              <Route path='/profile' component={userProfile}/>
-            </Switch>
-          </main>
       </Fragment>
     );
   }
