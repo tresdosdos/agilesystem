@@ -23,9 +23,17 @@ function post(url, data, myHeaders) {
     }).then(handleErrors)
 }
 
+function formPost(url, data){
+    return fetch(url , {
+        method:'POST',
+        body: data
+    }).then(handleErrors)
+}
+
 const requestAPI = {
     get: get,
-    post: post
+    post: post,
+    formPost: formPost
 };
 
 export default requestAPI;

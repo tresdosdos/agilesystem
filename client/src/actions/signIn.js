@@ -13,7 +13,8 @@ export const signIn = () => (dispatch) => {
           dispatch({
               type: 'GET_AUTH_SUCCESS',
               name: res.userName,
-              rights: res.rights
+              rights: res.rights,
+              img: res.img
           })
       })
       .catch((err) => {

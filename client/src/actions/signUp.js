@@ -13,7 +13,7 @@ export const signUp = () => (dispatch) => {
         .then((response) => response.json())
         .then((res) => {
             dispatch({
-                type: 'GET_AUTH_SUCCESS',
+                type: 'GET_FIRST_AUTH_SUCCESS',
                 name: res.userName,
                 rights: res.rights
             })
