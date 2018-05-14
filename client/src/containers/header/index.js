@@ -4,8 +4,6 @@ import { faSignInAlt, faUserPlus } from '@fortawesome/fontawesome-free-solid/ind
 import './header.css'
 import { Link } from 'react-router-dom'
 import {connect} from 'react-redux';
-import {signUp} from "../../actions/signUp";
-import {getRegistration} from "../../actions/registation";
 
 import UserProfile from '../../components/userProfile';
 

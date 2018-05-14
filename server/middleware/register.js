@@ -1,5 +1,5 @@
 const bodyParser = require('body-parser');
-const checkUser = require('../db/checkUser');
+const checkUserName = require('../db/checkUserName');
 const createUser = require('../db/createUser');
 
 module.exports = function (app) {
@@ -8,7 +8,7 @@ module.exports = function (app) {
     app.post('/register', function (req, res) {
         if (!req.body) return res.sendStatus(400);
         const {name, pass, rights} = req.body;
-        checkUser(name, function (user, err) {
+        checkUserName(name, function (user, err) {
             if (err) {
                 console.log(err);
                 res.status(500).send();

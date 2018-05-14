@@ -14,7 +14,8 @@ module.exports = function (app) {
             if (err) res.status(404).send();
             else{
                 if (isMatch){
-                    res.send({userName: user.userName, rights: user.rights});
+                    console.log(user.img);
+                    res.send({userName: user.userName, rights: user.rights, img: user.img});
                 }
                 else{
                     res.status(403).send();

@@ -16,6 +16,10 @@ const schema = mongoose.Schema(
         rights:{
             type: String,
             required: true
+        },
+        img:{
+            type: String,
+            required: true
         }
     }
 );

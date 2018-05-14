@@ -22,3 +22,9 @@ export const getCredentials = (e) => (dispatch) => {
     });
     return;
 };
+
+export const logout = () => (dispatch) => {
+    dispatch({
+        type: 'LOGOUT'
+    });
+};
