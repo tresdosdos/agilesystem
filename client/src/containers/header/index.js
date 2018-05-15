@@ -1,27 +1,33 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import { faSignInAlt, faUserPlus } from '@fortawesome/fontawesome-free-solid/index'
 import './header.css'
 import { Link } from 'react-router-dom'
 import {connect} from 'react-redux';
-
+import MenuItem from '../../components/menuItem';
+import SlideMenu from '../../components/slideMenu';
+import SignIn from '../signIn'
+import SignUp from '../signUp'
 import UserProfile from '../../components/userProfile';
 
 class Header extends Component{
   render(){
     return (
       <header className="header">
-          {this.props.store.auth.name || this.props.store.auth.name ? (
-              <UserProfile/>
-          ) : (
-              <div className='header__auth'>
-                  {this.props.children}
-                  <nav className='header__links'>
-                      <Link to="/"><FontAwesomeIcon icon={faSignInAlt}/>Sign in</Link>
-                      <Link to="/signUp"><FontAwesomeIcon icon={faUserPlus}/>Sign up</Link>
-                  </nav>
-              </div>
-          )}
+        <SlideMenu>
+            {this.props.store.auth.name || this.props.store.auth.name ? (
+                <UserProfile/>
+            ) : (
+                    <Fragment>
+                      <MenuItem title="Sign in">
+                        <SignIn/>
+                      </MenuItem>
+                      <MenuItem title="Sign Up">
+                        <SignUp/>
+                      </MenuItem>
+                    </Fragment>
+            )}
+        </SlideMenu>
       </header>
     )
   }
