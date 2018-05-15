@@ -13,7 +13,7 @@ class RadioInput extends Component{
         this.setState({
             selectedItem: index
         });
-        this.props.onChange(e);
+        //this.props.onChange(e);
     };
     render(){
         return this.props.content.map((element, index) => {

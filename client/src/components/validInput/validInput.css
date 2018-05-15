@@ -1,18 +1,25 @@
 .credentials__input{
-    width: 50%;
+    border: 1px rgb(0, 204, 255);
+    padding: 5px;
+    outline: none;
+    margin-left: 5px; 
 }
 
 .input__invalid{
-    color: #910009;
+    color: rgb(197, 0, 0);
     font-size: 12px;
 }
 
 .credentials__match{
     border: #0f0 2px solid;
-    width: 50%;
+    padding: 5px;
+    outline: none;
+    margin-left: 5px; 
 }
 
 .credentials__not__match{
     border: #f00 2px solid;
-    width: 50%;
+    padding: 5px;
+    outline: none;
+    margin-left: 5px; 
 }

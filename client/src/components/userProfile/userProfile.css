@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    height: 130px;
 }
 
 .user__info__container{
@@ -13,7 +14,7 @@
 
 .user__profile__avatar{
     border-radius: 50%;
-    width: 100%;
+    height: 100%;
 }
 
 .user__profile__name{
@@ -89,6 +90,7 @@
 
 .user__profile__avatar__c1{
     position: relative;
+    height: 100%;
 }
 
 .user__profile__avatar__c1:hover::after{
