@@ -1,0 +1,42 @@
+.slideMenu{
+    position: fixed;
+    width: fit-content;
+    top:0;
+    bottom:0;
+    background-color:#0079bf; 
+}
+
+.slideMenu__close{
+    position: relative;
+    align-self: flex-end;
+    width: 1em;
+    height: 1em;
+    opacity: 0.3;
+}
+
+.slideMenu__close:hover{
+    opacity: 1;
+}
+
+.slideMenu__close:before, .slideMenu__close:after {
+    position: absolute;
+    content: '';
+    left:.5em;
+    height: 1em;
+    width: 2px;
+    background-color: #fff;
+}
+
+.slideMenu__close:before {
+    transform: rotate(45deg);
+}
+
+.slideMenu__close:after {
+    transform: rotate(-45deg);
+}
+
+.slideMenu__icon{
+    color: #fff;
+    cursor: pointer;
+    margin: 20px;
+}
