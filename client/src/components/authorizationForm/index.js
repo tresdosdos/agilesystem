@@ -15,7 +15,6 @@ export default class AuthorizationForm extends Component{
     }
     return (
       <div className="authorization__form">
-        <h5>{this.props.text}</h5>
         {this.props.children}
         <button className={className} onClick={this.props.submit} disabled={disabled}>{this.props.button}</button>
       </div>

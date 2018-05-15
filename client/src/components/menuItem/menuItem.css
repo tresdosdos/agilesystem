@@ -1,0 +1,35 @@
+.menuItem{
+    cursor: pointer;
+    color: #fff;
+    font-size: 1.5em;
+}
+
+.menuItem__component__container{
+    height: 150px;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menuItem__component__container-enter {
+    height: 0;
+    opacity: 0;
+  }
+  
+  .menuItem__component__container-enter.menuItem__component__container-enter-active {
+    height: 150px;
+    opacity: 1;
+    transition: height .45s ease, opacity .05s .45s ease;
+  }
+  
+  .menuItem__component__container-leave {
+    height: 150px;
+    opacity: 1;
+  }
+  
+  .menuItem__component__container-leave.menuItem__component__container-leave-active {
+    height: 0;
+    opacity: 0;
+    transition: opacity .45s ease, height .05s .45s ease;
+  }

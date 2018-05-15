@@ -1,9 +1,10 @@
 .slideMenu{
-    position: fixed;
-    width: fit-content;
-    top:0;
-    bottom:0;
+    position: absolute;
+    top:100%;
+    width: 400px;
+    bottom: -100vh;
     background-color:#0079bf; 
+    box-shadow: inset 0 3px 5px rgb(51, 51, 51); 
 }
 
 .slideMenu__close{
@@ -40,3 +41,21 @@
     cursor: pointer;
     margin: 20px;
 }
+
+.slideMenu-enter {
+    right: -50vh;
+  }
+  
+  .slideMenu-enter.slideMenu-enter-active {
+    right: 0;
+    transition: right .3s ease;
+  }
+  
+  .slideMenu-leave {
+    right: 0;
+  }
+  
+  .slideMenu-leave.slideMenu-leave-active {
+    right: -50vh;
+    transition: right .3s ease;
+  }

@@ -51,9 +51,8 @@ class SignUp extends Component{
 
     render(){
         const content = ['Developer', 'Team Lead', 'Admin'];
-        const text = 'Register a new account';
         return (
-            <AuthorizationForm submit={this.props.signUp} isNameValid={this.state.isNameValid} isPasswordValid={this.state.isPasswordValid} text={text} button='Sign Up'>
+            <AuthorizationForm submit={this.props.signUp} isNameValid={this.state.isNameValid} isPasswordValid={this.state.isPasswordValid} button='Sign Up'>
                 <ValidInput type='text' onChange={this.inputValid} isValid={this.state.isNameValid} onKeyDown={this.handleEnter} placeholder='username'/>
                 <ValidInput type='password' onChange={this.inputValid} isValid={this.state.isPasswordValid} onKeyDown={this.handleEnter} placeholder='password'/>
                 <div className='sign__up__radio'>

@@ -52,9 +52,8 @@ class SignIn extends Component {
     };
 
   render () {
-    const text = 'Sign in with existing account';
     return (
-      <AuthorizationForm submit={this.props.signIn} isNameValid={this.state.isNameValid} isPasswordValid={this.state.isPasswordValid} text={text} button='Sign in'>
+      <AuthorizationForm submit={this.props.signIn} isNameValid={this.state.isNameValid} isPasswordValid={this.state.isPasswordValid} button='Sign in'>
         <ValidInput type='text' onChange={this.inputValid} isValid={this.state.isNameValid} onKeyDown={this.handleEnter} placeholder='username'/>
         <ValidInput type='password' onChange={this.inputValid} isValid={this.state.isPasswordValid} onKeyDown={this.handleEnter} placeholder='password'/>
         {this.props.store.signIn.error ? (<ErrorListener error={this.props.store.signIn.error}/>) : null}

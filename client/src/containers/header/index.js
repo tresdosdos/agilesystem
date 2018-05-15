@@ -4,7 +4,7 @@ import { faSignInAlt, faUserPlus } from '@fortawesome/fontawesome-free-solid/ind
 import './header.css'
 import { Link } from 'react-router-dom'
 import {connect} from 'react-redux';
-
+import MenuItem from '../../components/menuItem';
 import SlideMenu from '../../components/slideMenu';
 import SignIn from '../signIn'
 import SignUp from '../signUp'
@@ -19,8 +19,12 @@ class Header extends Component{
                 <UserProfile/>
             ) : (
                     <Fragment>
+                      <MenuItem title="Sign in">
                         <SignIn/>
+                      </MenuItem>
+                      <MenuItem title="Sign Up">
                         <SignUp/>
+                      </MenuItem>
                     </Fragment>
             )}
         </SlideMenu>

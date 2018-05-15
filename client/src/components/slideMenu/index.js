@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import './slideMenu.css'
-import FlipMove from 'react-flip-move' 
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/fontawesome-free-solid/index'
 
@@ -17,23 +17,18 @@ export default class SlideMenu extends Component{
     render(){
         return(
             <Fragment>
-                <FontAwesomeIcon className="fa-2x slideMenu__icon" icon={faBars} onClick={this.handleClick}>Menu</FontAwesomeIcon>
-                {
-                    this.state.isVisible?
-                    (
-                        <FlipMove
-                            appearAnimation="accordionHorizontal"
-                            enterAnimation="accordionHorizontal"
-                            leaveAnimation="accordionHorizontal"
-                        >
-                        <div className="slideMenu">
-                            <span onClick={this.handleClick} className="slideMenu__close"/>
-                            {this.props.children}
-                        </div>
-                        </FlipMove>
-                    ):
-                    null
-                }
+                <ReactCSSTransitionGroup component={Fragment} transitionName="slideMenu" transitionEnterTimeout={300} transitionLeaveTimeout={300}>
+                    <FontAwesomeIcon className="fa-2x slideMenu__icon" icon={faBars} onClick={this.handleClick}>Menu</FontAwesomeIcon>
+                    {
+                        this.state.isVisible?
+                        (
+                                <div className="slideMenu">
+                                    {this.props.children}
+                                </div>
+                        ):
+                        null
+                    }
+                </ReactCSSTransitionGroup>
             </Fragment>
         )
     }
