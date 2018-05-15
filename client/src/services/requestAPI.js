@@ -1,3 +1,10 @@
+function handleErrors(response) {
+    if (!response.ok) {
+        throw Error(response.statusText);
+    }
+    return response;
+}
+
 function get(url, myHeaders) {
     return fetch(url,{
         method: 'GET',
@@ -13,12 +20,20 @@ function post(url, data, myHeaders) {
         body: JSON.stringify(data),
         mode: 'cors',
         cache: 'default'
-    })
+    }).then(handleErrors)
+}
+
+function formPost(url, data){
+    return fetch(url , {
+        method:'POST',
+        body: data
+    }).then(handleErrors)
 }
 
 const requestAPI = {
     get: get,
-    post: post
+    post: post,
+    formPost: formPost
 };
 
 export default requestAPI;

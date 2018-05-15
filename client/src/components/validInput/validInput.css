@@ -1,0 +1,18 @@
+.credentials__input{
+    width: 50%;
+}
+
+.input__invalid{
+    color: #910009;
+    font-size: 12px;
+}
+
+.credentials__match{
+    border: #0f0 2px solid;
+    width: 50%;
+}
+
+.credentials__not__match{
+    border: #f00 2px solid;
+    width: 50%;
+}

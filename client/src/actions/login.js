@@ -1,15 +1,30 @@
 import {store} from '../App';
-import requestAPI from '../services/requestAPI';
 
-export const logIn = () => (dispatch) => {
-  const name = store.getState().credentials.name;
-  const pass = store.getState().credentials.pass;
-  requestAPI.post('/login', {
-      name: name,
-      pass: pass
-  }, {"Content-Type": "application/json"}).then((response) => {
-      console.log(response);
-      response.json();
-  })
-        .then((res) => console.log(res))
+export const getCredentials = (e) => (dispatch) => {
+    const {type} = e.target;
+    if (type === 'text')
+    {
+        dispatch({
+            type: 'GET_CREDENTIALS_SUCCESS',
+            name: e.target.value,
+            pass: store.getState().signIn.pass,
+        });
+    }
+    else if (type === 'password'){
+        dispatch({
+            type: 'GET_CREDENTIALS_SUCCESS',
+            name: store.getState().signIn.name,
+            pass: e.target.value
+        });
+    }
+    dispatch({
+       type: 'Clear Error'
+    });
+    return;
+};
+
+export const logout = () => (dispatch) => {
+    dispatch({
+        type: 'LOGOUT'
+    });
 };

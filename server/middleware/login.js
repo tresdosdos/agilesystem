@@ -1,17 +1,26 @@
 const bodyParser = require('body-parser');
-const User = require('../models/user');
-const createUser = require('../db/createUser');
+const comparePasswords = require('../db/comparePasswords');
 
 module.exports = function (app) {
     app.use(bodyParser.urlencoded({ extended: true })); ///нужное
     app.use(bodyParser.json());
     app.post('/login', function (req, res) {
         if (!req.body) return res.sendStatus(400);
-        const userName = req.body.name;
-        const userPass = req.body.pass;
         const {name, pass} = req.body;
-        console.log(userName+ " " + userPass);
-        createUser({name: name, pass: pass});
-        console.log('Name: ' + req.body.name + ', Pass: ' + req.body.pass);
+        //console.log(name+ " " + pass);
+        //createUser({name: name, pass: pass});
+        //console.log('Name: ' + req.body.name + ', Pass: ' + req.body.pass);
+        comparePasswords({name: name, pass: pass}, function (err, isMatch, user) {
+            if (err) res.status(404).send();
+            else{
+                if (isMatch){
+                    console.log(user.img);
+                    res.send({userName: user.userName, rights: user.rights, img: user.img});
+                }
+                else{
+                    res.status(403).send();
+                }
+            }
+        });
     });
 };

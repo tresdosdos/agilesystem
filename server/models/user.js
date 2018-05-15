@@ -4,12 +4,20 @@ const SALT_WORK_FACTOR = 10;
 
 const schema = mongoose.Schema(
     {
-        username:{
+        userName:{
             type: String,
             unique: true,
             required: true
         },
         hashedPassword:{
+            type: String,
+            required: true
+        },
+        rights:{
+            type: String,
+            required: true
+        },
+        img:{
             type: String,
             required: true
         }
@@ -25,10 +33,10 @@ schema.virtual('password').set(function (password) {
     this.hashedPassword = this.encryptPassword(password);
 });
 
-schema.methods.comparePassword = function (password, cb) {
+schema.methods.comparePasswords = function (password, cb) {
     bcrypt.compare(password, this.hashedPassword, function(err, isMatch) {
         if (err) return cb(err);
-        cb(null, isMatch);
+        return cb(null, isMatch);
     });
 };
 
