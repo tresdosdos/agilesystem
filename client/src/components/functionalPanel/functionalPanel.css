@@ -1,0 +1,13 @@
+.content__carcass__func{
+    background-color: grey;
+}
+
+.content__carcass__func__button{
+    background-color: inherit;
+    border: #0070ba;
+    color: #fff;
+    cursor: pointer;
+    padding: 5px 0;
+    outline: none;
+    width: 33%;
+}

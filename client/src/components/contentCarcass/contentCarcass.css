@@ -1,0 +1,17 @@
+.content__carcass__container{
+    margin: 0 10px;
+    width: 25%;
+}
+
+.content__carcass__header{
+    background-color: #0079bf;
+    border-radius: 50px 50px 0 0;
+    color: #fff;
+    padding: 5px 0;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.content__carcass__main{
+    background-color: rgb(223, 226, 229);
+}
