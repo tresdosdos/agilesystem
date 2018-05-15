@@ -6,7 +6,7 @@ import ValidInput from '../components/validInput';
 import ErrorListener from '../components/errorListener';
 import RadioInput from '../components/radioInput';
 
-import {userNameValidation, passwordValidation} from "../services/validationAPI";
+import {userNameValidation, passwordValidation, KEYBOARD} from "../services/validationAPI";
 
 import {signUp} from "../actions/signUp";
 import {getRegistration} from "../actions/registation";
@@ -40,13 +40,22 @@ class SignUp extends Component{
         }
         this.props.getRegistration(e);
     };
+
+    handleEnter = (e) =>{
+        if (e.keyCode === KEYBOARD.ENTER){
+            if (this.state.isNameValid && this.state.isPasswordValid){
+                this.props.signUp();
+            }
+        }
+    };
+
     render(){
         const content = ['Developer', 'Team Lead', 'Admin'];
         const text = 'Register a new account';
         return (
             <AuthorizationForm submit={this.props.signUp} isNameValid={this.state.isNameValid} isPasswordValid={this.state.isPasswordValid} text={text} button='Sign Up'>
-                <ValidInput type='text' onChange={this.inputValid} isValid={this.state.isNameValid} placeholder='username'/>
-                <ValidInput type='password' onChange={this.inputValid} isValid={this.state.isPasswordValid} placeholder='password'/>
+                <ValidInput type='text' onChange={this.inputValid} isValid={this.state.isNameValid} onKeyDown={this.handleEnter} placeholder='username'/>
+                <ValidInput type='password' onChange={this.inputValid} isValid={this.state.isPasswordValid} onKeyDown={this.handleEnter} placeholder='password'/>
                 <div className='sign__up__radio'>
                     <RadioInput group='position' content={content} className='sign__up__radio' onChange={this.props.getRegistration}/>
                 </div>

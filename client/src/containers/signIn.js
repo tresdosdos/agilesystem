@@ -9,9 +9,11 @@ import ValidInput from '../components/validInput';
 import AuthorizationForm from '../components/authorizationForm'
 import ErrorListener from '../components/errorListener';
 
-import {userNameValidation, passwordValidation} from "../services/validationAPI";
+import {userNameValidation, passwordValidation, KEYBOARD} from "../services/validationAPI";
 
 import '../App.css'
+
+
 
 class SignIn extends Component {
   constructor (props) {
@@ -41,12 +43,20 @@ class SignIn extends Component {
     this.props.getCredentials(e);
   };
 
+    handleEnter = (e) =>{
+        if (e.keyCode === KEYBOARD.ENTER){
+            if (this.state.isNameValid && this.state.isPasswordValid){
+                this.props.signIn();
+            }
+        }
+    };
+
   render () {
     const text = 'Sign in with existing account';
     return (
       <AuthorizationForm submit={this.props.signIn} isNameValid={this.state.isNameValid} isPasswordValid={this.state.isPasswordValid} text={text} button='Sign in'>
-        <ValidInput type='text' onChange={this.inputValid} isValid={this.state.isNameValid} placeholder='username'/>
-        <ValidInput type='password' onChange={this.inputValid} isValid={this.state.isPasswordValid} placeholder='password'/>
+        <ValidInput type='text' onChange={this.inputValid} isValid={this.state.isNameValid} onKeyDown={this.handleEnter} placeholder='username'/>
+        <ValidInput type='password' onChange={this.inputValid} isValid={this.state.isPasswordValid} onKeyDown={this.handleEnter} placeholder='password'/>
         {this.props.store.signIn.error ? (<ErrorListener error={this.props.store.signIn.error}/>) : null}
       </AuthorizationForm>
     );
