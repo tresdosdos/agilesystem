@@ -9,7 +9,7 @@ export const uploadImage = (e) => (dispatch) => {
     let checker = 0;;
     formats.forEach((element) => {
         if (fileFormat === element) checker=checker + 1;
-    })
+    });
     if (checker !== 1)
         return;
     const formData = new FormData();
