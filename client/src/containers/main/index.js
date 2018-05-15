@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import ContentCarcass from '../../components/contentCarcass';
+import Projects from '../projects';
 import {connect} from "react-redux";
 import './main.css';
 
@@ -8,16 +9,9 @@ class Main extends Component{
         super(props);
     }
     render(){
-        const content = [
-          {
-              name: 'huy',
-              TL: [{name: 'strelok', img: './standart_avatar.png'}],
-              developers: [{name: 'strelok', img: './standart_avatar.png'}]
-          }
-          ]
         return (
             <main className='main__content'>
-                <ContentCarcass header='projects' content={content}/>
+                <ContentCarcass header='projects' child={<Projects/>}/>
             </main>
         );
     }

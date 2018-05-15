@@ -1,0 +1,31 @@
+.project__item__container{
+    border-bottom: 5px #58a8f2 solid;
+    box-shadow: 0 2px #0070ba;
+    cursor: pointer;
+    padding: 5px 15px;
+}
+
+.project__item__name{
+    color: #0070ba;
+    font-size: 28px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.project__item__TL__name{
+    float: left;
+}
+
+.project__item__TL__avatar{
+    height: 15%;
+    width: 15%;
+}
+
+.project__item__dev__avatar{
+    height: 10%;
+    width: 10%;
+}
+
+.project__item__dev__name{
+    float: left;
+}

@@ -1,6 +1,6 @@
 const bodyParser = require('body-parser');
-const checkUserName = require('../db/checkUserName');
-const createUser = require('../db/createUser');
+const checkUserName = require('../db/user/checkUserName');
+const createUser = require('../db/user/createUser');
 
 module.exports = function (app) {
     app.use(bodyParser.urlencoded({ extended: true })); ///нужное

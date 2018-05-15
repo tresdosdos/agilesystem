@@ -1,4 +1,4 @@
-const User = require('../models/user').User;
+const User = require('../../models/user').User;
 
 module.exports = function createUser(data, callback) {
     let avatar;

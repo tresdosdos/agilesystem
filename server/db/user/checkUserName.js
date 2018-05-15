@@ -1,4 +1,4 @@
-const User = require('../models/user').User;
+const User = require('../../models/user').User;
 
 module.exports = function checkUserName(userName, callback) {
     User.findOne({userName: userName}, function (err, user) {

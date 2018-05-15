@@ -1,5 +1,5 @@
 const bodyParser = require('body-parser');
-const comparePasswords = require('../db/comparePasswords');
+const comparePasswords = require('../db/user/comparePasswords');
 
 module.exports = function (app) {
     app.use(bodyParser.urlencoded({ extended: true })); ///нужное
