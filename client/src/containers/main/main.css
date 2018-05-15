@@ -1,0 +1,8 @@
+.main__content{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    position: relative;
+    top: 200px;
+    width: 80%;
+}
