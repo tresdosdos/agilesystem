@@ -1,6 +1,5 @@
 const bodyParser = require('body-parser');
 const path = require('path');
-const checkUserImg = require('../db/checkUserImg');
 const checkUserName = require('../db/checkUserName');
 
 module.exports = function (app) {
