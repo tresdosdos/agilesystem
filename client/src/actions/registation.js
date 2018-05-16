@@ -19,7 +19,7 @@ export const getRegistration = (e) => (dispatch) => {
             rights: store.getState().signUp.rights
         });
     }
-    else {
+    else if (type === 'select-one'){
         dispatch({
             type: 'GET_REGISTRATION_SUCCESS',
             name: store.getState().signUp.name,

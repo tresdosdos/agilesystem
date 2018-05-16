@@ -14,6 +14,7 @@ class Header extends Component{
   render(){
     return (
       <header className="header">
+        <div className="header__logo"/>
         {this.props.store.auth.name || this.props.store.auth.name ? 
         (
           <UserProfile/>
