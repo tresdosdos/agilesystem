@@ -6,7 +6,7 @@ export const uploadImage = (e) => (dispatch) => {
     const fileFormat = e.target.files[0].name.slice(fileName.length-3, fileName.length);
     console.log(fileFormat);
     const formats  = ['JPG', 'jpg', 'png', 'bmp', 'pcx', 'jpeg', 'JPEG', 'gif'];
-    let checker = 0;;
+    let checker = 0;
     formats.forEach((element) => {
         if (fileFormat === element) checker=checker + 1;
     });
@@ -22,5 +22,9 @@ export const uploadImage = (e) => (dispatch) => {
                 type: 'CHANGE_AVATAR',
                 img: res.img
             });
+          dispatch({
+            type: 'GET_PROJECTS_SUCCESS',
+            data: res.projects
+          });
         });
 };

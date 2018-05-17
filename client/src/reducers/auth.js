@@ -1,6 +1,6 @@
 const initialState = {
     name: '',
-    rights: 'Developer',
+    rights: '',
     img: './standart_avatar.png'
 };
 

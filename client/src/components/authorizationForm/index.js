@@ -5,7 +5,7 @@ export default class AuthorizationForm extends Component{
   render(){
     let className = '';
     let disabled = false;
-    if (this.props.isNameValid === false || this.props.isPasswordValid === false){
+    if (this.props.isNameValid === false || this.props.isPasswordValid === false || this.props.isNameValid === ''){
         className='authorization__form__submit__disable';
         disabled = true;
     }

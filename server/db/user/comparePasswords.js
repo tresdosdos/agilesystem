@@ -1,4 +1,4 @@
-const User = require('../models/user').User;
+const User = require('../../models/user').User;
 
 module.exports = function (userData, cb) {
     User.findOne({userName: userData.name}).then(function (user) {
