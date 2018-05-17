@@ -1,46 +1,34 @@
 const Project = require('../../models/project').Project;
 const takeTL = require('./takeTL');
+const takeDev = require('./takeDev');
+const User = require('../../models/user').User;
 
-module.exports = function takeProject(callback) {
-  const teamLeads = [];
-  const Developers = [];
-
-  /*Project.find(function(err, projects){
-    projects.forEach((project) => {
-      project.Developers.forEach((dev) => {
-        takeTL(dev, function (info) {
-          Developers.push(info);
-        });
-      })
-    })
-  });
-  callback({TL: teamLeads,
-  dev: Developers})
-  */
-  /*(async() => {
-    await Project.find(function(err, projects){
-      projects.forEach((project) => {
-        project.TL.forEach((teamL) => {
-          takeTL(teamL, function (info) {
-            teamLeads.push(info);
-          });
-        })
-      })
-    });
-    await console.log(teamLeads);
-  })()*/
+module.exports = function takeProjects(callback) {
   (async () => {
     const projects = await Project.find();
-    const TLs = await projects.map((teamL) => teamL.TL);
-    await TLs.forEach((TL) => {
-      takeTL(TL, function (info) {
-        teamLeads.push(info);
+    const projectNames = [];
+    const projectDescriptions = [];
+    let projectTLs = [];
+    let projectDevs = [];
+    const mainData = [];
+    for (let project of projects){
+      await projectNames.push(project.projectName)
+      await projectDescriptions.push(project.description)
+    }
+    await takeTL(projects, function (info1) {
+      projectTLs = info1;
+      takeDev(projects, function (info2) {
+        projectDevs = info2;
+        for (let i = 0; i < projects.length; i++){
+          const tempProject = {};
+          tempProject.projectName = projectNames[i];
+          tempProject.description = projectDescriptions[i];
+          tempProject.TL = projectTLs[i];
+          tempProject.developers = projectDevs[i];
+          mainData.push(tempProject);
+        }
+        callback(mainData);
       })
     })
-    const teamLeads = await TLs.map((TL) => {
-      const temp = takeTL(TL);
-      return temp;
-    })
-    await console.log(teamLeads);
-  })();
+  })()
 };

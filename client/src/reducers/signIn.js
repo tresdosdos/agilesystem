@@ -12,6 +12,9 @@ export default function getSignIn(state = initialState, action){
                 pass: action.pass
             })
         }
+        case 'CLEAR_CREDENTIALS':{
+            return Object.assign({}, state, initialState);
+        }
         case 'Not Found':{
             return Object.assign({}, state, {error: 'This login was not found'})
         }

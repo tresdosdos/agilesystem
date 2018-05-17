@@ -1,13 +1,10 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import ContentCarcass from '../../components/contentCarcass';
 import Projects from '../projects';
-import {connect} from "react-redux";
+import { connect } from "react-redux";
 import './main.css';
 
 class Main extends Component{
-    constructor(props){
-        super(props);
-    }
     render(){
         return (
             <main className='main__content'>

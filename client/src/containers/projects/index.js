@@ -2,41 +2,24 @@ import React, { Component, Fragment } from 'react'
 import projectContent from '../../services/projectContent';
 import ProjectItem from '../../components/projectItem';
 import { connect } from 'react-redux'
-import { getProjects } from '../../actions/projects'
+import { getProjects, joinProject } from '../../actions/projects'
+import privacyAPI from '../../services/privacyAPI'
 
 class Projects extends Component{
-  constructor (props){
-    super(props);
-
-  }
-  handleClick = (e) =>{
-    console.log(e.target.id);
-  };
   componentDidMount(){
     this.props.getProjects();
   }
+
   render(){
-    const content = [
-      {
-        name: 'huy',
-        description: 'azaza olo im voditel nlo',
-        TL: [{name: 'strelok', img: './standart_avatar.png'}],
-        developers: [{name: 'strelok', img: './standart_avatar.png'}]
-      },
-      {
-        name: 'pidr',
-        description: 'a ti loh',
-        TL: [{name: 'yeban', img: './standart_avatar.png'}],
-        developers: [{name: 'loh', img: './standart_avatar.png'}]
-      }
-    ]
+    const content = this.props.store.projects.data;
     const result = projectContent.makeContent(projectContent.unPack(content));
+    const developer = privacyAPI.checkDeveloper(this.props.store.auth.rights);
     const finish = result.map((element, index) => {
-      return <ProjectItem name={element.name} TL={element.TL} developers={element.developers} descr={element.description} key={element.name.toString()} />
+      return <ProjectItem projectName={element.name} TL={element.TL} developers={element.developers} descr={element.description} key={index} disabled={developer} join={this.props.joinProject}/>
     });
     return(
       <Fragment>
-        {finish}
+        {this.props.store.projects.data.length ? (finish) : (<h2>There is no projects</h2>)}
       </Fragment>
     );
   }
@@ -45,6 +28,7 @@ class Projects extends Component{
 export default connect(
   state => ({store: state}),
   dispatch => ({
-    getProjects: () => {dispatch(getProjects())}
+    getProjects: () => {dispatch(getProjects())},
+    joinProject: (projectName) => {dispatch(joinProject(projectName))}
   })
 )(Projects);

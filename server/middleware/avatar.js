@@ -1,6 +1,7 @@
 const bodyParser = require('body-parser');
 const path = require('path');
 const checkUserName = require('../db/user/checkUserName');
+const takeProjects = require('../db/project/takeProjects');
 
 module.exports = function (app) {
     app.use(bodyParser.urlencoded({ extended: true })); ///нужное
@@ -29,8 +30,10 @@ module.exports = function (app) {
                     }
                     user.img = imgPath;
                     user.save();
+                    takeProjects((info) => {
+                      res.send({img: imgPath, projects: info});
+                    })
                 });
-                res.send({img: imgPath});
             }
         });
     });

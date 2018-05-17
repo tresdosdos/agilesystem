@@ -15,7 +15,8 @@ export const signUp = () => (dispatch) => {
             dispatch({
                 type: 'GET_FIRST_AUTH_SUCCESS',
                 name: res.userName,
-                rights: res.rights
+                rights: res.rights,
+                img: res.img
             })
         })
         .catch((err) => {
