@@ -1,7 +1,7 @@
-import React, {Component, Fragment} from 'react';
-import {logout} from "../../actions/login";
-import {connect} from "react-redux";
-import {uploadImage} from "../../actions/uploadImage";
+import React, { Component } from 'react';
+import { logout } from "../../actions/login";
+import { connect } from "react-redux";
+import { uploadImage } from "../../actions/uploadImage";
 import './userProfile.css'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import { faUser, faLock, faDoorClosed } from '@fortawesome/fontawesome-free-solid'

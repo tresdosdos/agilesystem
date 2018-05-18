@@ -1,0 +1,39 @@
+.content__carcass__func{
+    background-color: grey;
+}
+
+.content__carcass__func__button{
+    background-color: inherit;
+    border: #0070ba;
+    color: #fff;
+    cursor: pointer;
+    padding: 5px 0;
+    outline: none;
+    width: 33%;
+}
+
+.content__carcass__func__container1{
+    position: relative;
+}
+
+.content__carcass__add__hidden{
+    display: none;
+}
+
+.content__carcass__add{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 100%;
+}
+
+.content__carcass__func__input{
+    text-align: center;
+}
+
+.content__carcass__func__submit__button{
+    background-color: #00a6fd;
+    border-radius:  0 0 10px 10px;
+    margin-left: 35%;
+    width: 30%;
+}
