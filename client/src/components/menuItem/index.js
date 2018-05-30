@@ -30,6 +30,7 @@ export default class MenuItem extends Component{
                             null
                     }
                 </ReactCSSTransitionGroup>
+                <hr/>
             </div>
         )
     }

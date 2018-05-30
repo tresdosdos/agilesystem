@@ -5,7 +5,7 @@
 }
 
 .menuItem__component__container{
-    height: 150px;
+    height: 200px;
     background-color: transparent;
     display: flex;
     justify-content: center;
@@ -18,18 +18,18 @@
   }
   
   .menuItem__component__container-enter.menuItem__component__container-enter-active {
-    height: 150px;
+    height: 200px;
     opacity: 1;
-    transition: height .45s ease, opacity .05s .45s ease;
+    transition: height .45s ease, opacity .4s .1s ease;
   }
   
   .menuItem__component__container-leave {
-    height: 150px;
+    height: 200px;
     opacity: 1;
   }
   
   .menuItem__component__container-leave.menuItem__component__container-leave-active {
     height: 0;
     opacity: 0;
-    transition: opacity .45s ease, height .05s .45s ease;
+    transition: height .35s ease;
   }

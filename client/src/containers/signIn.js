@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-
+import FontAwesomeIcon from '@fortawesome/react-fontawesome'
+import { faUser, faLock } from '@fortawesome/fontawesome-free-solid'
 import {getCredentials} from '../actions/login';
 import {signIn} from '../actions/signIn'
 
@@ -54,8 +55,8 @@ class SignIn extends Component {
   render () {
     return (
       <AuthorizationForm submit={this.props.signIn} isNameValid={this.state.isNameValid} isPasswordValid={this.state.isPasswordValid} button='Sign in'>
-        <ValidInput type='text' onChange={this.inputValid} isValid={this.state.isNameValid} onKeyDown={this.handleEnter} placeholder='username'/>
-        <ValidInput type='password' onChange={this.inputValid} isValid={this.state.isPasswordValid} onKeyDown={this.handleEnter} placeholder='password'/>
+        <div><FontAwesomeIcon icon={faUser}/><ValidInput type='text' onChange={this.inputValid} isValid={this.state.isNameValid} onKeyDown={this.handleEnter} placeholder='username'/></div>
+        <div><FontAwesomeIcon icon={faLock}/><ValidInput type='password' onChange={this.inputValid} isValid={this.state.isPasswordValid} onKeyDown={this.handleEnter} placeholder='password'/></div>
         {this.props.store.signIn.error ? (<ErrorListener error={this.props.store.signIn.error}/>) : null}
       </AuthorizationForm>
     );

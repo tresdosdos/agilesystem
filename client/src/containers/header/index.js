@@ -14,20 +14,24 @@ class Header extends Component{
   render(){
     return (
       <header className="header">
-        <SlideMenu>
-            {this.props.store.auth.name || this.props.store.auth.name ? (
-                <UserProfile/>
-            ) : (
-                    <Fragment>
-                      <MenuItem title="Sign in">
-                        <SignIn/>
-                      </MenuItem>
-                      <MenuItem title="Sign Up">
-                        <SignUp/>
-                      </MenuItem>
-                    </Fragment>
-            )}
-        </SlideMenu>
+        <div className="header__logo"/>
+        {this.props.store.auth.name || this.props.store.auth.name ? 
+        (
+          <UserProfile/>
+        ) : 
+        (
+          <SlideMenu>
+            <Fragment>
+              <MenuItem title="Sign in">
+                <SignIn/>
+              </MenuItem>
+              <MenuItem title="Sign Up">
+                <SignUp/>
+              </MenuItem>
+            </Fragment>
+          </SlideMenu>
+        )
+        }
       </header>
     )
   }

@@ -34,8 +34,8 @@ class FunctionalPanel extends Component {
     }
   }
   handleSubmit = () => {
-    if (store.getState().projects.projectName.length > 30) return;
-    if (store.getState().projects.description.length > 40) return;
+    //if (store.getState().projects.projectName.length > 30) return;
+    //if (store.getState().projects.description.length > 40) return;
     this.props.addProject();
     this.setState((prevState) => {
       return {

@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-
+import FontAwesomeIcon from '@fortawesome/react-fontawesome'
+import { faUser, faLock } from '@fortawesome/fontawesome-free-solid'
 import AuthorizationForm from '../components/authorizationForm';
 import ValidInput from '../components/validInput';
 import ErrorListener from '../components/errorListener';
-import RadioInput from '../components/radioInput';
-
+import DropDownList from '../components/dropDownList'
 import {userNameValidation, passwordValidation, KEYBOARD} from "../services/validationAPI";
 
 import {signUp} from "../actions/signUp";
@@ -53,11 +53,9 @@ class SignUp extends Component{
         const content = ['Developer', 'Team Lead', 'Admin'];
         return (
             <AuthorizationForm submit={this.props.signUp} isNameValid={this.state.isNameValid} isPasswordValid={this.state.isPasswordValid} button='Sign Up'>
-                <ValidInput type='text' onChange={this.inputValid} isValid={this.state.isNameValid} onKeyDown={this.handleEnter} placeholder='username'/>
-                <ValidInput type='password' onChange={this.inputValid} isValid={this.state.isPasswordValid} onKeyDown={this.handleEnter} placeholder='password'/>
-                <div className='sign__up__radio'>
-                    <RadioInput group='position' content={content} className='sign__up__radio' onChange={this.props.getRegistration}/>
-                </div>
+                <div><FontAwesomeIcon icon={faUser}/><ValidInput type='text' onChange={this.inputValid} isValid={this.state.isNameValid} onKeyDown={this.handleEnter} placeholder='username'/></div>
+                <div><FontAwesomeIcon icon={faLock}/><ValidInput type='password' onChange={this.inputValid} isValid={this.state.isPasswordValid} onKeyDown={this.handleEnter} placeholder='password'/></div>
+                <DropDownList content={content} onChange={this.props.getRegistration}/>
                 {this.props.store.signUp.error ? (<ErrorListener error={this.props.store.signUp.error}/>) : null}
             </AuthorizationForm>
         );
